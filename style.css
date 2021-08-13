@@ -1,0 +1,40 @@
+#id {
+background-color: aqua;
+height: 200px;
+width: 200px;
+position: absolute;
+top: 34%;
+left: 40%;
+}
+
+.btn{
+    background-color: crimson;
+    height: 90px;
+    width: 90px;
+}
+
+.right{
+    position: absolute;
+    left: 59%;
+    top:43%;
+    bottom: 45%;
+}
+
+.left{
+    position: absolute;
+    left: 30%;
+    top:43%;
+    bottom:45%;
+}
+
+.top{
+    position: absolute;
+    left:44%;
+    bottom: 72%;
+}
+
+.bottom{
+    position: absolute;
+    left: 44%;
+    bottom: 14%;
+}
