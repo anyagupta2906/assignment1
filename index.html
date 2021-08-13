@@ -4,9 +4,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style.css">
-    <script src="/script.js" ></script>
     <title>Assignment</title>
+    <style>
+        #id {
+background-color: aqua;
+height: 200px;
+width: 200px;
+position: absolute;
+top: 34%;
+left: 40%;
+}
+
+.btn{
+    background-color: crimson;
+    height: 90px;
+    width: 90px;
+}
+
+.right{
+    position: absolute;
+    left: 59%;
+    top:43%;
+    bottom: 45%;
+}
+
+.left{
+    position: absolute;
+    left: 30%;
+    top:43%;
+    bottom:45%;
+}
+
+.top{
+    position: absolute;
+    left:44%;
+    bottom: 72%;
+}
+
+.bottom{
+    position: absolute;
+    left: 44%;
+    bottom: 14%;
+}
+    </style>
 </head>
 <body onload="dragBox('id')">
     <div id='id'></div>
@@ -15,4 +55,52 @@
 <input type="button" class="btn left" onclick="move('left')" value="Left">
 <input type="button" class="btn right" onclick="move('right')" value="Right">
 </body>
+    <script>
+    function move(value) {
+    var step = 50;
+    switch (value) {
+        case "up":
+            var a = document.getElementById('id').offsetTop;
+            a = a - step;
+            document.getElementById('id').style.top = a + 'px';
+            break;
+        case "down":
+            var b = document.getElementById('id').offsetTop;
+            b = b + step;
+            document.getElementById('id').style.top = b + 'px';
+            break;
+        case "left":
+            var c = document.getElementById('id').offsetLeft;
+            c = c - step;
+            document.getElementById('id').style.left = c + 'px';
+            break;
+        case "right":
+            var d = document.getElementById('id').offsetLeft;
+            d = d + step;
+            document.getElementById('id').style.left = d + 'px';
+            break;
+    }
+}
+var dragElement;
+
+function dragBox(id) {
+    var element = document.getElementById('id');
+    element.style.position = "absolute";
+    element.onmousedown = function () {
+        dragElement = element;
+    }
+}
+document.onmouseup = function(e){
+    dragElement = null;
+}
+
+document.onmousemove = function (e) {
+    var x = e.pageX;
+    var y = e.pageY;
+
+    dragElement.style.left = x + "px";
+    dragElement.style.top = y + "px";
+}
+
+</script>
 </html>
